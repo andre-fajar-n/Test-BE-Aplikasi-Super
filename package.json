@@ -1,0 +1,26 @@
+{
+  "type": "module",
+  "name": "test-be-aplikasi-super",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm test",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andre-fajar-n/Test-BE-Aplikasi-Super.git"
+  },
+  "author": "andre-fajar-n",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/andre-fajar-n/Test-BE-Aplikasi-Super/issues"
+  },
+  "homepage": "https://github.com/andre-fajar-n/Test-BE-Aplikasi-Super#readme",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "express": "^4.18.2",
+    "mysql": "^2.18.1"
+  }
+}
