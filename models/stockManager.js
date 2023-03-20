@@ -32,39 +32,39 @@ export class StockManager {
         break;
 
       case 'LIFO':
-        // newItems.reverse();
+        newItems.reverse()
         break;
 
       default:
-        return 'invalid sell strategy'
+        throw new Error('invalid sell strategy')
     }
 
     var remainingStock = quantity
     if (newItems.length > 0) {
       var i = 0
+      var deletedItems = [];
       while (remainingStock > 0) {
-        // console.log("TEST",newItems[i].quantity,remainingStock)
         if (i >= newItems.length) {
           throw new Error("insufficient stock")
         }
-
+        
         if (newItems[i].quantity > remainingStock) {
           const idxStockItems = this.stockItems.indexOf(newItems[i])
           this.stockItems[idxStockItems].quantity -= remainingStock
           remainingStock = 0
-          // break
-        } else if (newItems[i].quantity === remainingStock) {
-          remainingStock -= newItems[i].quantity
-          this.stockItems.splice(newItems[i], 1)
         } else {
-          throw new Error("insufficient stock")
+          remainingStock -= newItems[i].quantity
+          deletedItems.push(newItems[i])
         }
         i++
       }
+      
+      for (const v of deletedItems) {
+        const index = this.stockItems.indexOf(v)
+        this.stockItems.splice(index, 1)
+      }
     }
-    // for (const i = 0; i < newItems.length; i++) {
-    // }
 
-    // return
+    return this.stockItems
   }
 }
