@@ -55,7 +55,7 @@ describe("stockManagerClass", () => {
             {
                 "name":"item",
                 "quantity":4,
-                "expiryDate":new Date(2023,3,19),
+                "expiryDate":new Date(2023,3,20),
                 "type":"Dairy"
             }
         ])
@@ -92,8 +92,8 @@ describe("stockManagerClass", () => {
 });
 
 describe("stockManager Check All Sell Strategy", () => {
-    it("removeStockItem sell strategy FIFO", () => {
-        const stockManager = new StockManager('FIFO');
+    it("removeStockItem sell strategy FEFO", () => {
+        const stockManager = new StockManager('FEFO');
 
         const stockItem1 = new Dairy("item",8,new Date(2023,3,18))
         const stockItem2 = new Dairy("item",7,new Date(2023,3,20))
@@ -123,8 +123,8 @@ describe("stockManager Check All Sell Strategy", () => {
         ])
     })
 
-    it("removeStockItem sell strategy FEFO", () => {
-        const stockManager = new StockManager('FEFO');
+    it("removeStockItem sell strategy FIFO", () => {
+        const stockManager = new StockManager('FIFO');
 
         const stockItem1 = new Dairy("item",8,new Date(2023,3,18))
         const stockItem2 = new Dairy("item",7,new Date(2023,3,20))

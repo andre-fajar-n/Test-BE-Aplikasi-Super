@@ -24,11 +24,11 @@ export class StockManager {
 
     switch (this.sellStrategy) {
       case 'FIFO':
-        newItems.sort((a, b) => b.expiryDate - a.expiryDate);
-        break;
-    
-      case 'FEFO':
         newItems.sort((a, b) => a.expiryDate - b.expiryDate);
+        break;
+        
+      case 'FEFO':
+        newItems.sort((a, b) => b.expiryDate - a.expiryDate);
         break;
 
       case 'LIFO':
